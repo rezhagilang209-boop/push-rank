@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+
+  <div id="timerBox">
+    ⏰ Push Rank Dimulai Dalam
+    <div id="timer">00:00:00</div>
+</div>
+  
+  <div class="floating four">⚔️</div>
+<div class="floating two">🛡️</div>
+<div class="floating three">🏆</div>
+<div class="floating one">💎</div>
+  
+<head>
+<title>Undangan Push Rank</title>
+
+</head>
+
+<body>
+  
+  
+  <div id="intro">
+
+    <h1>⚔️ SQUAD NGETROLL ⚔️</h1>
+
+    <p>Welcome, Kacung</p>
+
+    <button id="enterBtn" onclick="masuk()">
+        TAP TO ENTER
+    </button>
+
+</div>
+  
+  <div class="stars"></div>
+
+<div id="loading">
+    <div class="loader-logo">
+        ⚔️
+    </div>
+
+    <h2>JIMBABNGOR</h2>
+    <p>Loading Land of Dawn...</p>
+
+    <div class="bar">
+        <div id="progress"></div>
+    </div>
+</div>
+
+<div class="container">
+
+
+<h1>UNDANGAN PUSH RANK<br>🔥</h1>
+
+
+<div class="card">
+
+<div class="hero">
+⚔️
+</div>
+
+<h2 style="text-align:center">
+MABAR RANK MLBB
+</h2>
+
+<div class="rank">
+Legend → Glory
+</div>
+
+<p style="text-align:center">
+Cari teman push yang serius tapi santai 😎
+</p>
+
+</div>
+
+
+
+<div class="card info">
+
+<h2>📌 INFO MABAR</h2>
+
+<p>🎮 Game : Mobile Legends</p>
+
+<p>📅 Hari : Jumat</p>
+
+<p>🕡 Jam : 19.00 WIB</p>
+
+<p>🎯 Target : Naik Rank</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2> DIBUTUHKAN</h2>
+
+<div class="role">
+
+<span>🛡 Tank</span>
+
+<span>⚔ Jungler</span>
+
+<span>🔥 Mid Lane</span>
+
+<span>🏹 Gold Lane</span>
+
+<span>🌱 Roamer</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>👥 SLOT PEMAIN</h2>
+
+<p>
+1.  S K Y L I N X 
+</p>
+
+<p>
+2. Slot kosong
+</p>
+
+<p>
+3. Slot kosong
+</p>
+
+<p>
+4. Slot kosong
+</p>
+
+<p>
+5. Slot kosong
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🚀 INTINE WANI PORAA?</h2>
+
+<button onclick="bukaML();klik()">
+🎮 GABUNG PUSH RANK
+</button>
+
+<button class="wa" onclick="wa()">
+📱 Tidak Bisa Ikut? Chat Admin
+</button>
+
+<p id="pesan" style="text-align:center"></p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="overlay">
+    <div class="loading-box">
+        <h2>Tunggu sebentar</h2>
+        <p>membuka mobile legends</p>
+
+        <div class="loading-bar">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <h2>⏰ Pengingat</h2>
+        <p>
+            Gek ndang satset intine wae<br>
+            Siapkan mental nek wani ndang login po kesini.
+        </p>
+
+        <button onclick="tutupPopup()">
+            Iyo Su!
+        </button>
+    </div>
+</div>
+
+</body>
+
+<style>
+
+#intro{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#06111f,#0c203d);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+#intro h1{
+    color:#ffd700;
+    font-size:38px;
+    text-shadow:0 0 20px gold;
+}
+
+#intro p{
+    color:white;
+    margin-bottom:30px;
+    font-size:20px;
+}
+
+#enterBtn{
+    padding:16px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:40px;
+    background:#00eaff;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    animation:pulse 1.5s infinite;
+}
+
+.fadeOut{
+    animation:fadeOut .8s forwards;
+}
+
+@keyframes fadeOut{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+#timerBox{
+    width:90%;
+    max-width:420px;
+    margin:20px auto;
+    text-align:center;
+    padding:15px;
+    border-radius:20px;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(10px);
+    border:1px solid cyan;
+    box-shadow:0 0 20px rgba(0,255,255,.4);
+}
+
+#timer{
+    margin-top:10px;
+    font-size:35px;
+    font-weight:bold;
+    color:#00ffff;
+    text-shadow:0 0 15px cyan;
+    letter-spacing:3px;
+}
+
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.75);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+}
+
+.popup-box{
+    width:320px;
+    padding:20px;
+    border-radius:20px;
+    background:#0d1b2a;
+    text-align:center;
+
+    border:2px solid cyan;
+
+    animation:muncul .4s ease;
+}
+
+@keyframes muncul{
+
+from{
+transform:scale(.5);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.floating{
+    position:fixed;
+    font-size:35px;
+    animation:float 6s ease-in-out infinite;
+    opacity:.7;
+}
+
+.one{top:12%;left:8%;}
+.two{top:25%;right:10%;animation-delay:1s;}
+.three{bottom:18%;left:12%;animation-delay:2s;}
+.four{bottom:10%;right:15%;animation-delay:3s;}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-20px);
+    }
+}
+
+.stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(cyan 1px, transparent 1px),
+        radial-gradient(gold 1px, transparent 1px);
+    background-size:80px 80px,120px 120px,180px 180px;
+    animation:starsMove 25s linear infinite;
+    opacity:.6;
+}
+
+@keyframes starsMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-300px);
+    }
+}
+
+#loading{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(135deg,#020b18,#102a43);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+
+.loader-logo{
+    font-size:90px;
+    animation:putar 2s infinite;
+}
+
+
+#loading h2{
+    color:#ffd700;
+    text-shadow:0 0 15px gold;
+}
+
+
+.bar{
+    width:250px;
+    height:15px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+
+#progress{
+    width:0%;
+    height:100%;
+    background:#00eaff;
+    animation:load 3s forwards;
+}
+
+
+@keyframes load{
+
+from{
+width:0%;
+}
+
+to{
+width:100%;
+}
+
+}
+
+
+@keyframes putar{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#07111f,#123456);
+    color:white;
+}
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:200px;
+height:200px;
+
+background:#00ffff55;
+
+border-radius:50%;
+
+filter:blur(80px);
+
+top:10%;
+left:10%;
+
+animation:gerak 5s infinite alternate;
+
+}
+
+
+@keyframes gerak{
+
+from{
+transform:translate(0,0);
+}
+
+to{
+transform:translate(200px,300px);
+}
+
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    width:250px;
+    height:250px;
+    background:#00ffff;
+    filter:blur(120px);
+    top:-100px;
+    left:-100px;
+    opacity:.3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:250px;
+    height:250px;
+    background:#ffd700;
+    filter:blur(120px);
+    bottom:-100px;
+    right:-100px;
+    opacity:.3;
+}
+
+.container{
+    max-width:420px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(5px);
+    border:1px solid #00eaff;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 0 20px #00eaff55;
+}
+.card{
+    animation: masuk 0.8s ease;
+}
+
+@keyframes masuk{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    text-align:center;
+    color:#fff;
+    font-size:36px;
+    letter-spacing:3px;
+    text-shadow:
+    0 0 10px cyan,
+    0 0 20px cyan,
+    0 0 40px #00eaff,
+    0 0 60px #00eaff;
+}
+h1{
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px cyan;
+}
+
+to{
+text-shadow:0 0 30px #00ffff;
+}
+
+}
+
+.hero{
+    text-align:center;
+    font-size:70px;
+}
+
+.rank{
+    text-align:center;
+    font-size:25px;
+    color:#ffd700;
+}
+
+
+.info p{
+    background:#0005;
+    padding:10px;
+    border-radius:10px;
+}
+
+
+.role{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+
+.role span{
+    background:#222;
+    padding:10px;
+    border-radius:15px;
+    margin:5px;
+}
+
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    background:#00eaff;
+    font-size:17px;
+    font-weight:bold;
+}
+
+button:hover{
+    background:white;
+}
+button{
+
+animation: pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+.wa{
+    margin-top:15px;
+    background:#25D366;
+    color:white;
+}
+
+.wa:hover{
+    background:#128C7E;
+}
+
+#overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.loading-box{
+    text-align:center;
+}
+
+.loading-box h2{
+    color:#00eaff;
+    text-shadow:0 0 15px cyan;
+}
+
+.loading-bar{
+    width:250px;
+    height:15px;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+#bar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#00eaff,#00ff99);
+}
+
+</style>
+
+<script>
+
+function bukaML(){
+
+    document.getElementById("overlay").style.display="flex";
+
+    let bar = document.getElementById("bar");
+    let progress = 0;
+
+    let loading = setInterval(function(){
+
+        progress += 2;
+
+        bar.style.width = progress + "%";
+
+        if(progress >= 100){
+
+            clearInterval(loading);
+
+            window.location.href="mobilelegends://";
+
+        }
+
+    },40);
+
+}
+function klik(){
+
+navigator.vibrate(100);
+
+}
+
+function wa(){
+
+window.open(
+"https://wa.me/6285179951328?text=Halo%20Rezha,%20saya%20tidak%20bisa%20ikut%20push%20rank",
+"_blank"
+);
+
+}
+
+</script>
+
+<script>
+
+setTimeout(function(){
+
+document.getElementById("loading").style.display="none";
+
+},3000);
+
+// Popup muncul setelah 10 detik
+setTimeout(function(){
+
+document.getElementById("popup").style.display="flex";
+
+},10000);
+
+
+function tutupPopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+
+const target = new Date("July 24, 2026 19:00:00").getTime();
+
+setInterval(function(){
+
+    const sekarang = new Date().getTime();
+    const selisih = target - sekarang;
+
+    if(selisih <= 0){
+
+        document.getElementById("timer").innerHTML="🔥 MULAI SEKARANG!";
+
+        return;
+    }
+
+    let jam = Math.floor((selisih%(1000*60*60*24))/(1000*60*60));
+    let menit = Math.floor((selisih%(1000*60*60))/(1000*60));
+    let detik = Math.floor((selisih%(1000*60))/1000);
+
+    document.getElementById("timer").innerHTML=
+        String(jam).padStart(2,"0")+" : "+
+        String(menit).padStart(2,"0")+" : "+
+        String(detik).padStart(2,"0");
+
+},1000);
+
+function masuk(){
+
+    document.getElementById("intro").classList.add("fadeOut");
+
+    setTimeout(function(){
+
+        document.getElementById("intro").style.display="none";
+
+        document.getElementById("mainContent").style.display="block";
+
+    },800);
+
+}
+
+</script>
+
+</html>
